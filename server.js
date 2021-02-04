@@ -19,8 +19,8 @@ app.set("view engine", "hbs");
 app.use(morgan("dev")); 
 app.use(carRouter);
 app.use(express.static("public"));
-app.use(require("./routes/index.Routes"));
-app.use(require("./routes/creation.Routes"));
+app.use(require("./routes/indexRoutes"));
+app.use(require("./routes/creationRoutes"));
 app.listen(3000);
 
 
