@@ -1,0 +1,19 @@
+<h1> Venta Coches Nuevos </h1>
+
+{{#each carListArray}}
+    <a href="/detalleCoche/{{this.id}}"></a>
+        <section>
+            <figure>
+                <img src="{{this.carImage}}" alt="{{this.carBrand}}{{this.carBrand}}">
+            </figure>
+
+                <p> marca: {{this.carBrand}}</p>
+                <p> modelo: {{this.carModel}}</p>
+                <p> Transmision: {{this.transmissionType}}</p>
+                <p> Combustible: {{this.motorType}}</p>
+                <p> Precio: {{this.sellingPrice}}</p>
+
+        </section>
+    </a>
+{{/each}}
+
