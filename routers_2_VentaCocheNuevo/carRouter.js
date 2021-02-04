@@ -8,4 +8,7 @@ router.get("/carForm", carController.renderFormCreation);
 
 router.post("/carCreation", carController.newCarCreation);
 
+router.get("/formularioEditar/:id", carController.renderUpdateForm);
+
+router.post("/updateCar/:id", carController.formUpdate);
 module.exports = router;

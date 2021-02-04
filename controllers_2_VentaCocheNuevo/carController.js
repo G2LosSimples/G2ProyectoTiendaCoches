@@ -16,4 +16,25 @@ carController.newCarCreation = async (req,res) => {
     res.redirect("/");
 };
 
+
+carController.findCarToUpdate = async (req, res) => {
+    await Car.findOneAndUpdate({})
+}
+
+carController.renderUpdateForm= async (req, res) => {
+    const carDetail = await Car.findById({_id:req.params.id}).lean();
+    res.render("templates/formUpdate", carDetail);
+}
+
+carController.formUpdate = async (req,res) => {
+    const filter = {_id:req.params.id};
+    const update = req.body;
+    await Car.findByIdAndUpdate(filter, update);
+    res.redirect("/carList");
+}
+
+
+
+
+
 module.exports = carController;
