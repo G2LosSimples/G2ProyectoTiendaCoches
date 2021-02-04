@@ -6,4 +6,14 @@ carController.showCarList = async (req,res) => {
     res.render("templates/carList",{carListArray:carList});
 }
 
+carController.renderFormCreation = (req,res) => {
+    res.render("templates/formCreation");
+};
+
+carController.newCarCreation = async (req,res) => {
+    const car = new Car(req.body);
+    await car.save();
+    res.redirect("/");
+};
+
 module.exports = carController;

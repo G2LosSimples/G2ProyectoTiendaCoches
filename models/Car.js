@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 'use strict';
 const {Schema, model} = require('mongoose');
 
@@ -16,22 +15,11 @@ const carSchema = new Schema({
         required:true
     },
     nextItvDate: String,
-=======
-const {Schema, model} = require ("mongoose");
-
-const carSchema = new Schema ({
-    
-    carBrand: String,
-    carModel: String,
-    modelYear: String,
-    nextItvDate: Date,
->>>>>>> creacion
     sellingPrice: Number,
     costPrice: Number,
     leasingPrice: Number,
     leaseDate: Date,
     leaseReturnDate: Date, 
-<<<<<<< HEAD
     carImage: {
         type: String,
         required:true
@@ -48,17 +36,10 @@ const carSchema = new Schema ({
         type: Number,
         required:true
     },
-=======
-    carImage: String,
-    carColor: String,
-    seatsNumber: Number,
-    doorNumber: Number,
->>>>>>> creacion
     trunkSize: Number,
     co2Emissions: String,
     carType: String,
     airConditioner: String,
-<<<<<<< HEAD
     transmissionType: {
         type: String,
         required:true
@@ -75,12 +56,3 @@ const carSchema = new Schema ({
 
 
 module.exports = model('Car', carSchema, 'cars');
-=======
-    transmissionType: String,
-    motorType: String,
-    stock: Number,
-    availability: String
-});
-
-module.exports = model("Car", carSchema, "cars");
->>>>>>> creacion
