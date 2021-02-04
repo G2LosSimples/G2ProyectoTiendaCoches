@@ -8,4 +8,6 @@ router.get("/carForm", carController.renderFormCreation);
 
 router.post("/carCreation", carController.newCarCreation);
 
+router.get("/carDetail/:id", carController.showCarDetail);
+
 module.exports = router;
