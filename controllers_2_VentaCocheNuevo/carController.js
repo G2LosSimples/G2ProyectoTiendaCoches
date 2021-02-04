@@ -21,4 +21,10 @@ carController.showCarDetail = async (req,res) => {
     res.render("templates/carDetailTemplate", carDetail);
 };
 
+carController.carDelete = async (req,res) =>{
+    await Car.deleteOne({_id:req.params.id});
+    res.redirect("/carList");
+
+}
+
 module.exports = carController;
