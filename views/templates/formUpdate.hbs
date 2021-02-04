@@ -1,0 +1,72 @@
+<form action="/updateCar/{{this._id}}" method="POST"> {{!--  url a la que mandamos el contenido del formulario --}}
+     <fieldset> {{!--NOMBRE DE INPUT TIENE QUE COINCIDIR CON LOS ATRIBUTOS DEL MODELO!!! --}}
+         <label for="carBrand">carBrand</label>
+         <input name="carBrand"type="text" value="{{this.carBrand}}">
+
+         <label for="carModel">Modelo</label>
+         <input name="carModel"type="text" value="{{this.carModel}}">
+
+         <label for="modelYear"></label>
+         <input name="modelYear"type="text" value="{{this.modelYear}}">
+
+         <label for="nextItvDate">Próxima ITV</label>
+         <input name="nextItvDate"type="text" value="{{this.nextItvDate}}">
+
+         <label for="sellingPrice">Precio de venta</label>
+         <input name="sellingPrice"type="number" value="{{this.sellingPrice}}">
+
+         <label for="costPrice">Precio de Coste</label>
+         <input name="costPrice"type="number" value="{{this.costPrice}}">
+
+         <label for="leasingPrice">Precio de alquiler</label>
+         <input name="leasingPrice"type="number" value="{{this.precio_venta}}">
+
+         <label for="leaseDate">Fecha de alquiler</label>
+         <input name="leaseDate"type="date" value="{{this.leaseDate}}">
+
+          <label for="leaseReturnDate">Fecha entrega alquiler </label>
+         <input name="leaseReturnDate"type="text" value="{{this.leaseReturnDate}}">
+
+         <label for="carColor">Color</label>
+         <input name="carColor"type="text" value="{{this.carColor}}">
+
+         <label for="seatsNumber">Numero de asientos</label>
+         <input name="seatsNumber"type="text" value="{{this.seatsNumber}}">
+
+         <label for="doorNumber">Numero de puertas</label>
+         <input name="doorNumber"type="text" value="{{this.doorNumber}}">
+
+         <label for="trunkSize">Tamaño maletero</label>
+         <input name="trunkSize"type="text" value="{{this.trunkSize}}">
+
+         <label for="co2Emissions">Emisiones de CO2</label>
+         <input name="co2Emissions"type="text" value="{{this.co2Emissions}}">
+
+         <label for="carType">Tipo vehículo</label>
+         <input name="carType"type="text" value="{{this.carType}}">
+
+         <label for="airConditioner">Aire acondicionado</label>
+         <input name="airConditioner"type="text" value="{{this.airConditioner}}">
+
+         <label for="transmissionType">Tipo de transimision</label>
+         <input name="transmissionType"type="text" value="{{this.transmissionType}}">
+
+         <label for="motorType">Tipo de motor</label>
+         <input name="motorType"type="text" value="{{this.motorType}}">
+
+         <label for="stock">Stock</label>
+         <input name="stock"type="text" value="{{this.stock}}">
+
+         <label for="availability">Disponibilidad</label>
+         <input name="availability"type="text" value="{{this.availability}}">
+
+         <label for="carImage">Foto</label>
+         <input name="carImage"type="text" value="{{this.carImage}}">
+
+
+        
+         <input value="Enviar"type="submit">
+    </fieldset> 
+
+    
+</form>
