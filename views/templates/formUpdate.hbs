@@ -1,12 +1,12 @@
-<form action="/updateCar/{{this._id}}" method="POST"> {{!--  url a la que mandamos el contenido del formulario --}}
-     <fieldset> {{!--NOMBRE DE INPUT TIENE QUE COINCIDIR CON LOS ATRIBUTOS DEL MODELO!!! --}}
+<form action="/updateCar/{{this._id}}" method="POST"> 
+     <fieldset> 
          <label for="carBrand">carBrand</label>
          <input name="carBrand"type="text" value="{{this.carBrand}}">
 
          <label for="carModel">Modelo</label>
          <input name="carModel"type="text" value="{{this.carModel}}">
 
-         <label for="modelYear"></label>
+         <label for="modelYear">Año</label>
          <input name="modelYear"type="text" value="{{this.modelYear}}">
 
          <label for="nextItvDate">Próxima ITV</label>
@@ -68,5 +68,6 @@
          <input value="Enviar"type="submit">
     </fieldset> 
 
-    
 </form>
+
+{{>atoms/homeButton}}

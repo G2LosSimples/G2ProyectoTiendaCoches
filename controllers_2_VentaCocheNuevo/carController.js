@@ -16,8 +16,6 @@ carController.newCarCreation = async (req,res) => {
     res.redirect("/");
 };
 
-<<<<<<< HEAD
-<<<<<<< develop
 carController.showCarDetail = async (req,res) => {
     const carDetail = await Car.findById({_id:req.params.id}).lean();
     res.render("templates/carDetailTemplate", carDetail);
@@ -27,15 +25,7 @@ carController.carDelete = async (req,res) =>{
     await Car.deleteOne({_id:req.params.id});
     res.redirect("/carList");
 
-}
-
-=======
-=======
->>>>>>> borrar
-
-carController.findCarToUpdate = async (req, res) => {
-    await Car.findOneAndUpdate({})
-}
+};
 
 carController.renderUpdateForm= async (req, res) => {
     const carDetail = await Car.findById({_id:req.params.id}).lean();
@@ -49,12 +39,4 @@ carController.formUpdate = async (req,res) => {
     res.redirect("/carList");
 }
 
-
-
-
-
-<<<<<<< HEAD
->>>>>>> Formulario Update
-=======
->>>>>>> borrar
 module.exports = carController;
