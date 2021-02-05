@@ -25,6 +25,18 @@ carController.carDelete = async (req,res) =>{
     await Car.deleteOne({_id:req.params.id});
     res.redirect("/carList");
 
+};
+
+carController.renderUpdateForm= async (req, res) => {
+    const carDetail = await Car.findById({_id:req.params.id}).lean();
+    res.render("templates/formUpdate", carDetail);
+}
+
+carController.formUpdate = async (req,res) => {
+    const filter = {_id:req.params.id};
+    const update = req.body;
+    await Car.findByIdAndUpdate(filter, update);
+    res.redirect("/carList");
 }
 
 module.exports = carController;

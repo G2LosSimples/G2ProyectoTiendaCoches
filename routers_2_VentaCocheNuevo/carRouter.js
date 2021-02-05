@@ -12,4 +12,8 @@ router.get("/carDetail/:id", carController.showCarDetail);
 
 router.get("/carDelete/:id", carController.carDelete);
 
+router.get("/formularioEditar/:id", carController.renderUpdateForm);
+
+router.post("/updateCar/:id", carController.formUpdate);
+
 module.exports = router;
