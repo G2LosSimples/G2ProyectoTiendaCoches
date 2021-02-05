@@ -8,6 +8,7 @@ router.get("/carForm", carController.renderFormCreation);
 
 router.post("/carCreation", carController.newCarCreation);
 
+<<<<<<< HEAD
 <<<<<<< develop
 router.get("/carDetail/:id", carController.showCarDetail);
 
@@ -18,4 +19,9 @@ router.get("/formularioEditar/:id", carController.renderUpdateForm);
 
 router.post("/updateCar/:id", carController.formUpdate);
 >>>>>>> Formulario Update
+=======
+router.get("/formularioEditar/:id", carController.renderUpdateForm);
+
+router.post("/updateCar/:id", carController.formUpdate);
+>>>>>>> borrar
 module.exports = router;

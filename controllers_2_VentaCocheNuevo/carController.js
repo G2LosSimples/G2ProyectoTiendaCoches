@@ -16,6 +16,7 @@ carController.newCarCreation = async (req,res) => {
     res.redirect("/");
 };
 
+<<<<<<< HEAD
 <<<<<<< develop
 carController.showCarDetail = async (req,res) => {
     const carDetail = await Car.findById({_id:req.params.id}).lean();
@@ -29,6 +30,8 @@ carController.carDelete = async (req,res) =>{
 }
 
 =======
+=======
+>>>>>>> borrar
 
 carController.findCarToUpdate = async (req, res) => {
     await Car.findOneAndUpdate({})
@@ -50,5 +53,8 @@ carController.formUpdate = async (req,res) => {
 
 
 
+<<<<<<< HEAD
 >>>>>>> Formulario Update
+=======
+>>>>>>> borrar
 module.exports = carController;
