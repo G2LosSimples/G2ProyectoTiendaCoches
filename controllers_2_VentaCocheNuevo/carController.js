@@ -16,4 +16,15 @@ carController.newCarCreation = async (req,res) => {
     res.redirect("/");
 };
 
+carController.showCarDetail = async (req,res) => {
+    const carDetail = await Car.findById({_id:req.params.id}).lean();
+    res.render("templates/carDetailTemplate", carDetail);
+};
+
+carController.carDelete = async (req,res) =>{
+    await Car.deleteOne({_id:req.params.id});
+    res.redirect("/carList");
+
+}
+
 module.exports = carController;

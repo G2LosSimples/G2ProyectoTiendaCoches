@@ -1,0 +1,38 @@
+<h1>Ficha técnica del vehículo</h1>
+
+<section>
+
+    <figure>
+
+        <img src="{{this.carImage}}" alt="Logo del coche">
+        <figcaption>{{this.carBrand}} {{this.carModel}} {{this.carColor}}</figcaption>
+
+    </figure>
+
+    <article>
+        
+        <p>Año: {{this.modelYear}}</p>
+        <p>Precio: {{this.sellingPrice}}&euro;</p>
+        <p>Número de asientos: {{this.seatsNumber}}</p>
+        <p>Número de puertas: {{this.doorNumber}}</p>
+        <p>Volúmen del maletero: {{this.trunkSize}} l</p>
+        <p>Emisiones: {{this.co2Emissions}} ppm</p>
+        <p>Motor: {{this.motorType}}</p>
+        <p>Disponibilidad: {{this.availability}}</p>
+
+
+    </article>
+
+    <a href="/carDelete/{{this._id}}">Borrar</a>
+
+</section>
+
+
+
+
+
+
+    
+    
+    
+    
