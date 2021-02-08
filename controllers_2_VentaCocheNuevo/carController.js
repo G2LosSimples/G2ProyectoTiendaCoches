@@ -1,10 +1,12 @@
 const Car = require("../models/Car");
+const{recoverCars}=require("../Functions/carFunctions");
 const carController = {};
 
 carController.showCarList = async (req,res) => {
-    const carList = await Car.find().lean();
-    res.render("templates/carList",{carListArray:carList});
-}
+
+    res.render("templates/carList",{carListArray:await recoverCars()});
+
+};
 
 carController.renderFormCreation = (req,res) => {
     res.render("templates/formCreation");
