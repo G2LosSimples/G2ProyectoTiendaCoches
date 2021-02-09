@@ -1,11 +1,35 @@
 const Car = require("../models/Car");
 
-function recoverCars(){
+function getCars(){
 
     return Car.find().lean();
 
 }
 
-module.exports = {recoverCars};
+function getSingleCar(id){
+
+    return Car.findById(id).lean();
+
+}
+
+function createCar(data){
+
+    return new Car(data);
+
+}
+
+function deleteCar(id){
+
+    return Car.deleteOne(id);
+
+}
+
+function updateCar(filter,update){
+
+    return Car.findByIdAndUpdate(filter, update);
+
+}
+
+module.exports = {getCars,getSingleCar,createCar,deleteCar,updateCar};
 
 

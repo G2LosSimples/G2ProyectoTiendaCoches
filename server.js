@@ -2,8 +2,6 @@ const express = require ("express");
 const exphbs = require ("express-handlebars"); 
 const app = express(); 
 const morgan = require ("morgan");
-const carRouter = require ("./routers_2_VentaCocheNuevo/carRouter");
-const indexRouter = require("./routers_2_VentaCocheNuevo/indexRouter");
 
 require("./connection");
 
@@ -18,8 +16,8 @@ app.use(express.json());
 
 app.set("view engine", "hbs");
 app.use(morgan("dev")); 
-app.use(indexRouter);
-app.use(carRouter);
+app.use(require("./routers_2_VentaCocheNuevo/indexRouter"));
+app.use(require ("./routers_2_VentaCocheNuevo/carRouter"));
 app.use(express.static("public"));
 app.listen(3000);
 
