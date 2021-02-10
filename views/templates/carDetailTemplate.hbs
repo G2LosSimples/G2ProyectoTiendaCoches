@@ -20,15 +20,17 @@
         <p>Motor: {{this.motorType}}</p>
         <p>Disponibilidad: {{this.availability}}</p>
 
+        <a href="/buyCar/{{this._id}}">Comprar</a>
+
 
     </article>
 
-    {{>atoms/atoms/deleteButton}}
-    {{>atoms/atoms/editButton}}
+    {{>atoms/buttons/deleteButton}}
+    {{>atoms/buttons/editButton}}
 
 </section>
 
-{{>atoms/atoms/homeButton}}
+{{>atoms/buttons/homeButton}}
 
 
 
