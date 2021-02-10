@@ -1,4 +1,4 @@
-const{getCars,getSingleCar,createCar,deleteCar,updateCar}=require("../Functions/carFunctions");
+const{getCars,getSingleCar,createCar,deleteCar,updateCar,findCarByBrand}=require("../Functions/carFunctions");
 
 const carController = {};
 
@@ -36,6 +36,12 @@ const carController = {};
 
     }
 
+    carController.searchCar = async (req,res) => {
+
+        const searchResult = await findCarByBrand({$text:{$search:req.body.carBrand,$caseSensitive:false}});
+        res.render("templates/carList",{carListArray:searchResult});
+        
+    }
 
 
 module.exports = carController;

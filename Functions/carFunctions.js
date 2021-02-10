@@ -30,6 +30,12 @@ function updateCar(filter,update){
 
 }
 
-module.exports = {getCars,getSingleCar,createCar,deleteCar,updateCar};
+function findCarByBrand(brand){
+
+    return Car.find(brand).lean();
+
+}
+
+module.exports = {getCars,getSingleCar,createCar,deleteCar,updateCar,findCarByBrand};
 
 

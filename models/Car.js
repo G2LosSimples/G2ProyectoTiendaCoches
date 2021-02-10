@@ -50,6 +50,6 @@ const carSchema = new Schema({
     transactionType: String
 });
 
-
+carSchema.index({carBrand:"text"});
 
 module.exports = model('Car', carSchema, 'cars');
