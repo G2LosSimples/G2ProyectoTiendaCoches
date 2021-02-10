@@ -18,10 +18,4 @@ function createTransaction(data){
 
 }
 
-function deleteTransaction(id){
-
-    return Transaction.deleteOne(id);
-
-}
-
-module.exports = {getTransactions,getSingleTransaction,createTransaction,deleteTransaction};
+module.exports = {getTransactions,getSingleTransaction,createTransaction};

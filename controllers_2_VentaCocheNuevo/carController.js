@@ -34,14 +34,14 @@ const carController = {};
             .then(res.redirect("/carList"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
-    }
+    };
 
     carController.searchCar = async (req,res) => {
 
         const searchResult = await findCarByBrand({$text:{$search:req.body.carBrand,$caseSensitive:false}});
         res.render("templates/carList",{carListArray:searchResult});
         
-    }
+    };
 
 
 module.exports = carController;
