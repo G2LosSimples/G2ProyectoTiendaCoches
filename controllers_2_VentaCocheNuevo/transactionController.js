@@ -18,10 +18,11 @@ transactionController.transactionDelete = (req,res) =>{
 transactionController.buyCar = async (req,res) => {
 
     const singleCar = await getSingleCar({_id:req.params.id});
+
     const benefit = (singleCar.sellingPrice-singleCar.costPrice);
     const newStock = singleCar.stock-1;
-    const newTransaction = createTransaction({userId:"1", carId:req.params.id, total:singleCar.sellingPrice, benefit:benefit});
 
+    const newTransaction = createTransaction({userId:"1", carId:req.params.id, total:singleCar.sellingPrice, benefit:benefit});
 
     if(singleCar.stock>0){
         await newTransaction.save();
