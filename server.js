@@ -18,6 +18,7 @@ app.set("view engine", "hbs");
 app.use(morgan("dev")); 
 app.use(require("./routers_2_VentaCocheNuevo/indexRouter"));
 app.use(require ("./routers_2_VentaCocheNuevo/carRouter"));
+app.use(require("./routers_2_VentaCocheNuevo/transactionRouter"))
 app.use(express.static("public"));
 app.listen(3000);
 

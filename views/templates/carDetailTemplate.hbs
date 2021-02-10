@@ -2,12 +2,7 @@
 
 <section>
 
-    <figure>
-
-        <img src="{{this.carImage}}" alt="Logo del coche">
-        <figcaption>{{this.carBrand}} {{this.carModel}} {{this.carColor}}</figcaption>
-
-    </figure>
+    {{>atoms/images/carDetail}}
 
     <article>
         
@@ -19,6 +14,8 @@
         <p>Emisiones: {{this.co2Emissions}} ppm</p>
         <p>Motor: {{this.motorType}}</p>
         <p>Disponibilidad: {{this.availability}}</p>
+
+        <p>Stock: {{this.stock}}</p>
 
         <a href="/buyCar/{{this._id}}">Comprar</a>
 
