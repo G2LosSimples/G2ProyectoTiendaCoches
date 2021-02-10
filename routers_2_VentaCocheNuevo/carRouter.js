@@ -16,6 +16,6 @@ router.get("/editForm/:id", carController.renderUpdateForm);
 
 router.post("/updateCar/:id", carController.formUpdate);
 
-router.get("/buyCar/:id", carController.buyCar);
+
 
 module.exports = router;
