@@ -45,7 +45,10 @@ const carController = {};
         const newTransaction = new Transaction({userId:"1", carId:carId, total:singleCar.sellingPrice, benefit:benefit});
         await newTransaction.save();
         res.redirect("/");
-
+        //comprobar stock
+        const filter = {_id:carId};
+        const updateCar = {stock:(singleCar.stock-1)};
+        await updateCar(filter,updateCar);
 
 
     }
