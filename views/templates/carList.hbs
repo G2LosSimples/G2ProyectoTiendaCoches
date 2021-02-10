@@ -3,9 +3,8 @@
 {{#each carListArray}}
     <a href="/carDetail/{{this._id}}">
         <section>
-            <figure>
-                <img src="{{this.carImage}}" alt="{{this.carBrand}}{{this.carBrand}}">
-            </figure>
+           
+                {{>atoms/images/carList}}
 
                 <p> marca: {{this.carBrand}}</p>
                 <p> modelo: {{this.carModel}}</p>

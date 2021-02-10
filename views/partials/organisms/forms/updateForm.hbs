@@ -3,61 +3,43 @@
 
         {{>atoms/forms/carBrand}}
 
-        <label for="carModel">Modelo</label>
-        <input name="carModel" type="text" value="{{this.carModel}}">
+        {{>atoms/forms/carModel}}
 
-        <label for="modelYear">Año</label>
-        <input name="modelYear" type="number" value="{{this.modelYear}}">
+        {{>atoms/forms/modelYear}}
 
-        <label for="nextItvDate">Próxima ITV</label>
-        <input name="nextItvDate" type="date" value="{{this.nextItvDate}}">
+        {{>atoms/forms/nextItvDate}}
 
-        <label for="sellingPrice">Precio de venta</label>
-        <input name="sellingPrice" type="number" value="{{this.sellingPrice}}">
+        {{>atoms/forms/sellingPrice}}
 
-        <label for="costPrice">Precio de Coste</label>
-        <input name="costPrice" type="number" value="{{this.costPrice}}">
+        {{>atoms/forms/costPrice}}
+        
+        {{>atoms/forms/carImage}}
 
-        <label for="carImage">Foto</label>
-        <input name="carImage" type="text" value="{{this.carImage}}">
+        {{>atoms/forms/carColor}}
+       
+        {{>atoms/forms/seatsNumber}}
+       
+        {{>atoms/forms/doorNumber}}
 
-        <label for="carColor">Color</label>
-        <input name="carColor" type="text" value="{{this.carColor}}">
+        {{>atoms/forms/trunkSize}}
 
-        <label for="seatsNumber">Numero de asientos</label>
-        <input name="seatsNumber" type="number" value="{{this.seatsNumber}}">
+        {{>atoms/forms/co2Emissions}}
 
-        <label for="doorNumber">Numero de puertas</label>
-        <input name="doorNumber" type="number" value="{{this.doorNumber}}">
+        {{>atoms/forms/carType}}
 
-        <label for="trunkSize">Tamaño maletero</label>
-        <input name="trunkSize" type="number" value="{{this.trunkSize}}">
+        {{>atoms/forms/airConditioner}}
 
-        <label for="co2Emissions">Emisiones de CO2</label>
-        <input name="co2Emissions" type="number" value="{{this.co2Emissions}}">
+        {{>atoms/forms/transmissionType}}
 
-        <label for="carType">Tipo vehículo</label>
-        <input name="carType" type="text" value="{{this.carType}}">
+        {{>atoms/forms/motorType}}
 
-        <label for="airConditioner">Aire acondicionado</label>
-        <input name="airConditioner" type="text" value="{{this.airConditioner}}">
+        {{>atoms/forms/stock}}
 
-        <label for="transmissionType">Tipo de transimision</label>
-        <input name="transmissionType" type="text" value="{{this.transmissionType}}">
+        {{>atoms/forms/availability}}
 
-        <label for="motorType">Tipo de motor</label>
-        <input name="motorType" type="text" value="{{this.motorType}}">
+        {{>atoms/forms/transactionType}}
+       
+        {{>atoms/forms/submit}}
 
-        <label for="stock">Stock</label>
-        <input name="stock" type="number" value="{{this.stock}}">
-
-        <label for="availability">Disponibilidad</label>
-        <input name="availability" type="text" value="{{this.availability}}">
-
-        <label for="transactionType">Operación</label>
-        <input name="transactionType" type="text" value="{{this.transactionType}}">
-
-        <input value="Enviar" type="submit">
     </fieldset>
-
 </form>
