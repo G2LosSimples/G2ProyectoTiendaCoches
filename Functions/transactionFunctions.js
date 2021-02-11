@@ -18,4 +18,16 @@ function createTransaction(data){
 
 }
 
-module.exports = {getTransactions,getSingleTransaction,createTransaction};
+async function calculateBenefits(){
+
+    const transactions = await getTransactions();
+
+    let benefits = 0;
+    for (let i = 0; i < transactions.length; i++) {
+        benefits+=transactions[i].benefit;
+    }
+    return benefits;
+
+}
+
+module.exports = {getTransactions,getSingleTransaction,createTransaction,calculateBenefits};
