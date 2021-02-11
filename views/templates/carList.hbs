@@ -6,13 +6,12 @@
     <a href="/carDetail/{{this._id}}">
         <section>
            
-                {{>atoms/images/thumbnailList}}
-
-                <p> marca: {{this.carBrand}}</p>
-                <p> modelo: {{this.carModel}}</p>
-                <p> Transmision: {{this.transmissionType}}</p>
-                <p> Combustible: {{this.motorType}}</p>
-                <p> Precio: {{this.sellingPrice}}</p>
+                {{>atoms/thumbnailsCar/thumbnailList}}
+                {{>atoms/details/brand}}
+                {{>atoms/details/model}}
+                {{>atoms/details/transmission}}
+                {{>atoms/details/combustible}}
+                {{>atoms/details/price}}
 
         </section>
     </a>
