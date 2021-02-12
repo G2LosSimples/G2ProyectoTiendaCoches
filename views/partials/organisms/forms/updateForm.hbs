@@ -1,12 +1,10 @@
 <form action="/updateCar/{{this._id}}" method="POST">
     <fieldset>
-{{#with car}}
 
         {{#each arrayInputList}}
             {{>atoms/forms/input}}
         {{/each}}
           <input type="submit" value="Enviar">
-{{/with}}
        
 
     </fieldset>

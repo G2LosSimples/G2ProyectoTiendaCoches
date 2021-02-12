@@ -4,18 +4,14 @@ const carController = {};
 
     carController.showCarList = async (req,res) => res.render("templates/carList",{carListArray:await getCars()});
 
-    carController.renderFormCreation = (req,res) => res.render("templates/formCreation");
+    carController.renderFormCreation = (req,res) => res.render("templates/formCreation",{arrayInputList:inputs.updateForm});
 
     carController.showCarDetail = async (req,res) => res.render("templates/carDetailTemplate", await getSingleCar({_id:req.params.id}));
 
     carController.renderUpdateForm = async (req, res) => 
     {   
         const singleCar = await getSingleCar({_id:req.params.id});
-        const inputs = inputsUpdateForm;
-
-        
-
-        res.render("templates/formUpdate", {arrayInputList:inputs})};
+        res.render("templates/formUpdate", {arrayInputList:inputs.updateForm})};
 
     carController.newCarCreation = (req,res) => {
 
