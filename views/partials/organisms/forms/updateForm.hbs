@@ -1,45 +1,13 @@
 <form action="/updateCar/{{this._id}}" method="POST">
     <fieldset>
+{{#with car}}
 
-        {{>atoms/forms/carBrand}}
-
-        {{>atoms/forms/carModel}}
-
-        {{>atoms/forms/modelYear}}
-
-        {{>atoms/forms/nextItvDate}}
-
-        {{>atoms/forms/sellingPrice}}
-
-        {{>atoms/forms/costPrice}}
-        
-        {{>atoms/forms/carImage}}
-
-        {{>atoms/forms/carColor}}
+        {{#each arrayInputList}}
+            {{>atoms/forms/input}}
+        {{/each}}
+          <input type="submit" value="Enviar">
+{{/with}}
        
-        {{>atoms/forms/seatsNumber}}
-       
-        {{>atoms/forms/doorNumber}}
-
-        {{>atoms/forms/trunkSize}}
-
-        {{>atoms/forms/co2Emissions}}
-
-        {{>atoms/forms/carType}}
-
-        {{>atoms/forms/airConditioner}}
-
-        {{>atoms/forms/transmissionType}}
-
-        {{>atoms/forms/motorType}}
-
-        {{>atoms/forms/stock}}
-
-        {{>atoms/forms/availability}}
-
-        {{>atoms/forms/transactionType}}
-       
-        {{>atoms/forms/submit}}
 
     </fieldset>
 </form>
