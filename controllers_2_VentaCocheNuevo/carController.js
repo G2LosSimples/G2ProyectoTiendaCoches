@@ -16,7 +16,7 @@ const carController = {};
     carController.newCarCreation = (req,res) => {
 
         createCar(req.body).save()
-            .then(res.redirect("/carList"))
+            .then(res.redirect("/"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
     };
@@ -24,7 +24,7 @@ const carController = {};
     carController.carDelete = (req,res) =>{
 
         deleteCar({_id:req.params.id})
-            .then(res.redirect("/carList"))
+            .then(res.redirect("/"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
     };
@@ -34,7 +34,7 @@ const carController = {};
         const filter = {_id:req.params.id};
         const update = req.body;
         updateCar(filter,update)
-            .then(res.redirect("/carList"))
+            .then(res.redirect("/"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
     };
