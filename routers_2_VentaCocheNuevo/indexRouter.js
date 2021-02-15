@@ -1,8 +1,12 @@
-const express = require ("express");
+const express = require("express");
 const router = express.Router();
 
-router.get("/", function (req,res){
-    res.render("templates/landingTemplate");
+router.get("/controlPanel", function (req,res){
+    res.render("templates/controlPanel")
 });
+
+
+
+
 
 module.exports = router;

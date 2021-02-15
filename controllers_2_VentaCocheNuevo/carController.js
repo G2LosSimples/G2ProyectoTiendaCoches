@@ -1,19 +1,22 @@
 const{getCars,getSingleCar,createCar,deleteCar,updateCar,findCarByBrand}=require("../Functions/carFunctions");
-
+const inputs = require("../data/inputs.json");
 const carController = {};
 
     carController.showCarList = async (req,res) => res.render("templates/carList",{carListArray:await getCars()});
 
-    carController.renderFormCreation = (req,res) => res.render("templates/formCreation");
+    carController.renderFormCreation = (req,res) => res.render("templates/formCreation",{arrayInputList:inputs.updateForm});
 
     carController.showCarDetail = async (req,res) => res.render("templates/carDetailTemplate", await getSingleCar({_id:req.params.id}));
 
-    carController.renderUpdateForm = async (req, res) => res.render("templates/formUpdate", await getSingleCar({_id:req.params.id}));
+    carController.renderUpdateForm = async (req, res) => 
+    {   
+        const singleCar = await getSingleCar({_id:req.params.id});
+        res.render("templates/formUpdate", {arrayInputList:inputs.updateForm})};
 
     carController.newCarCreation = (req,res) => {
 
         createCar(req.body).save()
-            .then(res.redirect("/carList"))
+            .then(res.redirect("/"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
     };
@@ -21,7 +24,7 @@ const carController = {};
     carController.carDelete = (req,res) =>{
 
         deleteCar({_id:req.params.id})
-            .then(res.redirect("/carList"))
+            .then(res.redirect("/"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
     };
@@ -31,7 +34,7 @@ const carController = {};
         const filter = {_id:req.params.id};
         const update = req.body;
         updateCar(filter,update)
-            .then(res.redirect("/carList"))
+            .then(res.redirect("/"))
             .catch((error)=>res.send(`Ha ocurrido un error ${error}`));
 
     };

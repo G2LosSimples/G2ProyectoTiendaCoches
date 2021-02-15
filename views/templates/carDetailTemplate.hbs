@@ -14,11 +14,12 @@
          {{>atoms/details/seatNumber}}
          {{>atoms/details/doorNumber}}
          {{>atoms/details/trunkSize}}
+         {{>atoms/details/airConditioner}}
          {{>atoms/details/motor}}
          {{>atoms/details/availability}}
          
 
-      <p>Stock: {{this.stock}}</p>      {{!-- No hemos hecho atom porque se había hablado de no mostrar sino utilizarlo unicamente para operaciones --}}
+      <p>Stock: {{this.stock}}</p>   {{!-- No hemos hecho atom porque se había hablado de no mostrar sino utilizarlo unicamente para operaciones --}}
 
         <a href="/buyCar/{{this._id}}">Comprar</a>
 
@@ -30,7 +31,7 @@
 
 </section>
 
-{{>atoms/buttons/homeButton}}
+
 
 
 
