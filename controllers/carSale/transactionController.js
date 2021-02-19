@@ -3,15 +3,15 @@ const{getTransactions,getSingleTransaction,createTransaction,benefitsMonth,trans
 
 const transactionController ={};
 
-transactionController.showTransactionList = async(req,res)=>res.render("templates/transactionList",{transactionListArray:await getTransactions()});
+transactionController.showTransactionList = async(req,res)=>res.render("templates/carSale/transaction_list",{transactionListArray:await getTransactions()});
 
-transactionController.showTransactionDetail = async (req,res)=> res.render("templates/transactionDetailTemplate", await getSingleTransaction({_id:req.params.id}));
+transactionController.showTransactionDetail = async (req,res)=> res.render("templates/carSale/transaction_detail", await getSingleTransaction({_id:req.params.id}));
 
-transactionController.benefitsMonth = async (req,res)=> res.render("templates/benefitsTemplate",{benefits:await benefitsMonth()});
+transactionController.benefitsMonth = async (req,res)=> res.render("templates/carSale/benefits",{benefits:await benefitsMonth()});
 
-transactionController.transactionMonth =async (req,res)=> res.render("templates/transactionMonth",{transactionMonthArray:await transactionMonth()});
+transactionController.transactionMonth =async (req,res)=> res.render("templates/carSale/transactionMonth",{transactionMonthArray:await transactionMonth()});
 
-transactionController.transactionYear =async (req,res)=> res.render("templates/transactionYear",{transactionYearArray:await transactionYear()});
+transactionController.transactionYear =async (req,res)=> res.render("templates/carSale/transactionYear",{transactionYearArray:await transactionYear()});
 
 transactionController.buyCar = async (req,res) => {
 
@@ -33,7 +33,7 @@ transactionController.buyCar = async (req,res) => {
 
     }
 
-    res.redirect("/");
+    res.redirect("/newCars");
 
 };
 

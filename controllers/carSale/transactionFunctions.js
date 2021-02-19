@@ -57,7 +57,7 @@ async function benefitsMonth(){
     for (let i = 0; i < transactions.length; i++) {
         benefitsMonth += transactions[i].benefit;
     }
-    console.log(benefitsMonth);
+
     return benefitsMonth;
 
 }
