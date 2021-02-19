@@ -2,7 +2,9 @@
     <fieldset>
 
         {{#each arrayInputList}}
-            {{>atoms/forms/input}}
+           {{#with reqCar}}
+               {{>atoms/forms/input}}
+           {{/with}}
         {{/each}}
           <input type="submit" value="Enviar">
        
