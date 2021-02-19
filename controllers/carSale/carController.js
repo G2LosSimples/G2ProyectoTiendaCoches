@@ -1,5 +1,5 @@
 const{getCars,getSingleCar,createCar,deleteCar,updateCar,findCarByBrand}=require("./carFunctions");
-const inputs = require("../../data/input.json");
+const inputs = require("../../data/inputs.json");
 const carController = {};
 
     carController.showCarList = async (req,res) => res.render("templates/carSale/car_list",{carListArray:await getCars()});
@@ -11,7 +11,7 @@ const carController = {};
     carController.renderUpdateForm = async (req, res) => {
 
         const singleCar = await getSingleCar({_id:req.params.id});
-        res.render("templates/carSale/car_edit", {arrayInputList:inputs.updateForm});
+        res.render("templates/carSale/car_edit", {arrayInputList:inputs.updateForm,reqCar:singleCar});
 
     };
 
