@@ -1,13 +1,17 @@
-const{getSingleCar,updateCar,getCars}=require("./carFunctions");
-const{getTransactions,getSingleTransaction,createTransaction,calculateBenefits}=require("./transactionFunctions");
+const{getSingleCar,updateCar}=require("./carFunctions");
+const{getTransactions,getSingleTransaction,createTransaction,benefitsMonth,transactionMonth,transactionYear}=require("./transactionFunctions");
 
 const transactionController ={};
 
-transactionController.showTransactionList = async(req,res)=>res.render("templates/carSale/transaction_list",{transactionListArray:await getTransactions()});
+transactionController.showTransactionList = async(req,res)=>res.render("templates/transactionList",{transactionListArray:await getTransactions()});
 
-transactionController.showTransactionDetail = async (req,res)=> res.render("templates/carSale/transaction_detail", await getSingleTransaction({_id:req.params.id}));
+transactionController.showTransactionDetail = async (req,res)=> res.render("templates/transactionDetailTemplate", await getSingleTransaction({_id:req.params.id}));
 
-transactionController.calculateBenefits =async  (req,res)=> res.render("templates/carSale/benefits",{benefits:await calculateBenefits()});
+transactionController.benefitsMonth = async (req,res)=> res.render("templates/benefitsTemplate",{benefits:await benefitsMonth()});
+
+transactionController.transactionMonth =async (req,res)=> res.render("templates/transactionMonth",{transactionMonthArray:await transactionMonth()});
+
+transactionController.transactionYear =async (req,res)=> res.render("templates/transactionYear",{transactionYearArray:await transactionYear()});
 
 transactionController.buyCar = async (req,res) => {
 
@@ -23,16 +27,13 @@ transactionController.buyCar = async (req,res) => {
         await newTransaction.save();
         await updateCar({_id:req.params.id},{stock:newStock});
 
-        if(newStock==0){
-            await updateCar({_id:req.params.id},{availability:"no disponible"});
-
-        }
-        return res.render("templates/carSale/car_list",{carListArray:await getCars()});
+    }
+    if(newStock==0){
+        await updateCar({_id:req.params.id},{availability:"no disponible"});
 
     }
 
-
-    return res.render("templates/carSalw/car_list",{error:true,carListArray:await getCars()});
+    res.redirect("/");
 
 };
 

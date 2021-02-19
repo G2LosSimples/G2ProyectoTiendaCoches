@@ -30,4 +30,57 @@ async function calculateBenefits(){
 
 }
 
-module.exports = {getTransactions,getSingleTransaction,createTransaction,calculateBenefits};
+async function transactionMonth(){
+
+    const transactions = await getTransactions();
+    let transactionsThisMonth = [];
+    
+
+    for (let i = 0; i < transactions.length; i++) {
+        let monthNumber = transactions[i].transactionDate.getMonth();
+        let transactionsMonth = transactions[i];
+        let now = new Date();
+
+        if (monthNumber == now.getMonth()){
+            transactionsThisMonth.push(transactionsMonth);
+        }
+    }
+    
+    return transactionsThisMonth;
+}
+
+async function benefitsMonth(){
+
+    let transactions = await transactionMonth();
+    let benefitsMonth = 0;
+
+    for (let i = 0; i < transactions.length; i++) {
+        benefitsMonth += transactions[i].benefit;
+    }
+    console.log(benefitsMonth);
+    return benefitsMonth;
+
+}
+
+
+
+async function transactionYear(){
+
+    const transactions = await getTransactions();
+    let transactionsThisYear = [];
+
+    for (let i = 0; i < transactions.length; i++) {
+        let yearNumber = transactions[i].transactionDate.getFullYear();
+        let transactionsYear = transactions[i];
+        let now = new Date();
+
+        if (yearNumber == now.getFullYear()){
+            transactionsThisYear.push(transactionsYear);
+        }
+    }
+    
+    return transactionsThisYear;
+}
+
+
+module.exports = {getTransactions,getSingleTransaction,createTransaction,benefitsMonth, transactionMonth, transactionYear};

@@ -4,7 +4,9 @@ const transactionController = require("../../controllers/carSale/transactionCont
 
 router.get("/transactionList",transactionController.showTransactionList);
 router.get("/transactionDetail/:id",transactionController.showTransactionDetail);
-router.get("/benefits",transactionController.calculateBenefits)
+router.get("/benefits",transactionController.benefitsMonth);
+router.get("/transactionMonth",transactionController.transactionMonth);
+router.get("/transactionYear",transactionController.transactionYear);
 router.get("/buyCar/:id", transactionController.buyCar);
 
 module.exports = router;
