@@ -7,7 +7,9 @@ transactionController.showTransactionList = async(req,res)=>res.render("template
 
 transactionController.showTransactionDetail = async (req,res)=> res.render("templates/carSale/transaction_detail", await getSingleTransaction({_id:req.params.id}));
 
-transactionController.benefitsMonth = async (req,res)=> res.render("templates/carSale/benefits",{benefitsMonth:await benefitsMonth()});
+transactionController.benefitsMonth = async (req,res)=> res.render("templates/carSale/benefits",{benefitsMonth:await benefitsMonth(), benefitsYear:await benefitsYear(), totalBenefits:await calculateBenefits()});
+
+
 
 transactionController.transactionMonth =async (req,res)=> res.render("templates/carSale/transactionMonth",{transactionMonthArray:await transactionMonth()});
 
