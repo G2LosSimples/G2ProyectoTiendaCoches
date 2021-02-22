@@ -1,5 +1,5 @@
 const{getSingleCar,updateCar}=require("./carFunctions");
-const{getTransactions,getSingleTransaction,createTransaction,benefitsMonth,transactionMonth,transactionYear}=require("./transactionFunctions");
+const{getTransactions,getSingleTransaction,createTransaction,benefitsMonth,benefitsYear,transactionMonth,transactionYear, calculateBenefits}=require("./transactionFunctions");
 
 const transactionController ={};
 
@@ -7,7 +7,7 @@ transactionController.showTransactionList = async(req,res)=>res.render("template
 
 transactionController.showTransactionDetail = async (req,res)=> res.render("templates/carSale/transaction_detail", await getSingleTransaction({_id:req.params.id}));
 
-transactionController.benefitsMonth = async (req,res)=> res.render("templates/carSale/benefits",{benefits:await benefitsMonth()});
+transactionController.benefitsMonth = async (req,res)=> res.render("templates/carSale/benefits",{benefitsMonth:await benefitsMonth()});
 
 transactionController.transactionMonth =async (req,res)=> res.render("templates/carSale/transactionMonth",{transactionMonthArray:await transactionMonth()});
 
