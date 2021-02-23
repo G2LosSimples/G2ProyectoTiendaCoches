@@ -1,9 +1,11 @@
-const{getSingleCar,updateCar}=require("./carFunctions");
+const{getSingleCar,updateCar,getCars}=require("./carFunctions");
 const{getTransactions,getSingleTransaction,createTransaction,benefitsMonth,benefitsYear,transactionMonth,transactionYear, calculateBenefits}=require("./transactionFunctions");
 
 const transactionController ={};
 
-transactionController.showTransactionList = async(req,res)=>res.render("templates/carSale/transaction_list",{transactionListArray:await getTransactions()});
+transactionController.showTotalTransactions = async(req,res)=>res.render("templates/carSale/transactionTotal",{transactionListArray:await getTransactions()});
+
+transactionController.renderTransactionPanel = (req,res)=>res.render("templates/carSale/transactionPanel");
 
 transactionController.showTransactionDetail = async (req,res)=> res.render("templates/carSale/transaction_detail", await getSingleTransaction({_id:req.params.id}));
 
@@ -24,18 +26,26 @@ transactionController.buyCar = async (req,res) => {
     const newTransaction = createTransaction({userId:"1", carId:req.params.id, total:singleCar.sellingPrice, benefit:benefit});
 
     const newStock = singleCar.stock-1;
+    
+    if (singleCar.stock >= 0){
 
-    if(singleCar.stock>0){
-        await newTransaction.save();
-        await updateCar({_id:req.params.id},{stock:newStock});
+        if(singleCar.stock == 0){
+            return res.render("templates/carSale/car_list",{error:true, carListArray:await getCars()});
+        }
 
+        if(singleCar.stock>0 && singleCar.availability == "disponible"){
+            await newTransaction.save();
+            await updateCar({_id:req.params.id},{stock:newStock});
+        
+            if(newStock==0){
+                await updateCar({_id:req.params.id},{availability:"no disponible"});    
+            }
+            
+        }
     }
-    if(newStock==0){
-        await updateCar({_id:req.params.id},{availability:"no disponible"});
 
-    }
 
-    res.redirect("/newCars");
+    return res.render("templates/carSale/car_list",{error:false, carListArray:await getCars()});
 
 };
 
