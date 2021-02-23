@@ -15,9 +15,9 @@ const carController = {};
 
     };
 
-    carController.newCarCreation = (req,res) => {
+    carController.newCarCreation = async (req,res) => {
 
-        createCar(req.body).save()
+        await createCar(req.body)
         res.redirect("/newCars")
 
 

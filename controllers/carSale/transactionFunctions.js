@@ -62,7 +62,18 @@ async function benefitsMonth(){
 
 }
 
+async function benefitsYear(){
 
+    let transactions = await transactionYear();
+    let benefitsYear = 0;
+
+    for (let i = 0; i < transactions.length; i++) {
+        benefitsYear += transactions[i].benefit;
+    }
+
+    return benefitsYear;
+
+}
 
 async function transactionYear(){
 
@@ -83,4 +94,4 @@ async function transactionYear(){
 }
 
 
-module.exports = {getTransactions,getSingleTransaction,createTransaction,benefitsMonth, transactionMonth, transactionYear};
+module.exports = {getTransactions,getSingleTransaction,createTransaction,benefitsMonth,benefitsYear, transactionMonth, transactionYear,calculateBenefits};
