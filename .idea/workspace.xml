@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bb38b44b-4158-43b1-aa2d-1b70647670ff" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/unitTesting" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1oEyCAyAdG086z3rnuVJKRLIi4D" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testingJest" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\javio\Desktop\Repos\G2ProyectoTiendaCoches\public\js" />
+      <recent name="C:\Users\javio\Desktop\Repos\G2ProyectoTiendaCoches\controllers\carSale" />
+      <recent name="C:\Users\javio\Desktop\Repos\G2ProyectoTiendaCoches\data" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bb38b44b-4158-43b1-aa2d-1b70647670ff" name="Default Changelist" comment="" />
+      <created>1612865914513</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612865914513</updated>
+      <workItem from="1613996561614" duration="11940000" />
+      <workItem from="1614067804525" duration="8876000" />
+      <workItem from="1614160911048" duration="3791000" />
+      <workItem from="1614241519593" duration="624000" />
+      <workItem from="1614249104708" duration="14000" />
+      <workItem from="1614249996425" duration="2150000" />
+      <workItem from="1614257052024" duration="318000" />
+      <workItem from="1614262057330" duration="146000" />
+      <workItem from="1614278921110" duration="1183000" />
+      <workItem from="1614326793796" duration="23000" />
+      <workItem from="1614346555653" duration="1187000" />
+      <workItem from="1614357721449" duration="64000" />
+      <workItem from="1614359286476" duration="214000" />
+    </task>
+    <task id="LOCAL-00001" summary="A la puta las configuraciones de intellij">
+      <created>1613996656289</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613996656289</updated>
+    </task>
+    <task id="LOCAL-00002" summary="funcion de calculo de beneficios anual">
+      <created>1613999169658</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1613999169658</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Inicio de la v3">
+      <created>1614002138549</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614002138549</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor de la funcion create">
+      <created>1614077406308</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614077406308</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="A la puta las configuraciones de intellij" />
+    <MESSAGE value="funcion de calculo de beneficios anual" />
+    <MESSAGE value="Inicio de la v3" />
+    <MESSAGE value="refactor de la funcion create" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor de la funcion create" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
