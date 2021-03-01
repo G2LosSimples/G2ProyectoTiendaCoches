@@ -11,8 +11,6 @@ transactionController.showTransactionDetail = async (req,res)=> res.render("temp
 
 transactionController.benefitsMonth = async (req,res)=> res.render("templates/carSale/benefits",{benefitsMonth:await benefitsMonth(), benefitsYear:await benefitsYear(), totalBenefits:await calculateBenefits()});
 
-
-
 transactionController.transactionMonth =async (req,res)=> res.render("templates/carSale/transactionMonth",{transactionMonthArray:await transactionMonth()});
 
 transactionController.transactionYear =async (req,res)=> res.render("templates/carSale/transactionYear",{transactionYearArray:await transactionYear()});
