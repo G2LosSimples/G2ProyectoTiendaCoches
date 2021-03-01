@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 const {createCar} = require('../controllers/carSale/carFunctions')
+const path = require('../globalConfig.json')
 
 describe ('Car Model', ()=>{
 
     beforeAll(async () => {
-    await mongoose.connect("mongodb://localhost/Chuletica",
-            { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+    await mongoose.connect(path.mongoUri,
+            { useUnifiedTopology: true,
+                useNewUrlParser: true,
+                useCreateIndex: true,
+                useFindAndModify: false }, (err) => {
             if (err) {
                 console.error(err);
                 process.exit(1);
@@ -30,7 +34,12 @@ describe ('Car Model', ()=>{
         expect(validCar.leaseDate).toBe(carData.leaseDate);
         // expect(validCar.carBrand).toBe(carData.carBrand);
         // expect(validCar.carBrand).toBe(carData.carBrand);
-    })  
+    })
+
+    afterAll(done => {
+        mongoose.connection.close()
+        done();
+    })
 
 
 })

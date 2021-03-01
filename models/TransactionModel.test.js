@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const {createTransaction}=require('../controllers/carSale/transactionFunctions');
+const path = require('../globalConfig.json')
 
 describe('Transaction model',()=>{
 
 
     beforeAll(async () => {
-        await mongoose.connect("mongodb://localhost/Chuletica",
-            { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+        await mongoose.connect(path.mongoUri,
+            { useUnifiedTopology: true,
+                useNewUrlParser: true,
+                useCreateIndex: true,
+                useFindAndModify: false }, (err) => {
             if (err) {
                 console.error(err);
                 process.exit(1);
@@ -25,7 +29,10 @@ describe('Transaction model',()=>{
         expect(validTransaction.benefit).toBe(transactionData.benefit);
     })
 
-
+    afterAll(done => {
+        mongoose.connection.close()
+        done();
+    })
 
 
 })
