@@ -16,8 +16,8 @@ describe('Transaction model',()=>{
 
     it('should create a Transaction succesfully', async ()=> {
         const transactionData = {userId: '1', carId: 'asrgkñbjasd', total: 234, benefit: 123}
-        const validTransaction = createTransaction(transactionData);
-        await validTransaction.save();
+        let validTransaction = createTransaction(transactionData);
+        validTransaction = await validTransaction.save();
         expect(validTransaction._id).toBeDefined();
         expect(validTransaction.userId).toBe(transactionData.userId);
         expect(validTransaction.carId).toBe(transactionData.carId);
