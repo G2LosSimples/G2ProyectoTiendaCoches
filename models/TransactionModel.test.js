@@ -29,6 +29,38 @@ describe('Transaction model',()=>{
         expect(validTransaction.benefit).toBe(transactionData.benefit);
     })
 
+    it('should insert a transaction succesfully but with a field not defined in model', async () =>{
+
+        const transactionData = {userId: "ASAD", carId:"asdas", total: 1234, benefit:1234, transactionDate:new Date("2021-02-21T00:00:00.000+00:00"), hola: "asdasfa"}
+   
+        const validTransaction = createTransaction(transactionData);
+
+        await validTransaction.save();
+
+        expect(validTransaction._id).toBeDefined();
+        expect(validTransaction.hola).toBeUndefined();
+
+
+    })
+
+    it('should throw an error without a required field', async () => {
+
+        const transactionData = {userId:'asd'}
+        let err;
+        try{
+            
+            const invalidTransaction = await createTransaction(transactionData);
+            error = invalidTransaction
+            
+            await invalidTransaction.save();
+            
+        }catch(error){ err = error }
+
+        expect(err.errors.carId).toBeDefined();        
+        expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
+
+    })
+
     afterAll(done => {
         mongoose.connection.close()
         done();
