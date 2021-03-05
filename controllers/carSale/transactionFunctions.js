@@ -21,10 +21,10 @@ function createTransaction(data){
 async function calculateBenefits(){
 
     const transactions = await getTransactions();
-
     let benefits = 0;
-    for (let i = 0; i < transactions.length; i++) {
-        benefits+=transactions[i].benefit;
+
+    for(transaction of transactions){
+        benefits+=transaction.benefit;
     }
     return benefits;
 
@@ -33,20 +33,12 @@ async function calculateBenefits(){
 async function transactionMonth(){
 
     const transactions = await getTransactions();
-    let transactionsThisMonth = [];
-    
 
-    for (let i = 0; i < transactions.length; i++) {
-        let monthNumber = transactions[i].transactionDate.getMonth();
-        let transactionsMonth = transactions[i];
-        let now = new Date();
-
-        if (monthNumber == now.getMonth()){
-            transactionsThisMonth.push(transactionsMonth);
+    return transactions.filter(transaction =>{
+        if(transaction.transactionDate.getMonth() === new Date().getMonth()){
+            return transaction;
         }
-    }
-    
-    return transactionsThisMonth;
+    });
 }
 
 async function benefitsMonth(){
@@ -54,8 +46,8 @@ async function benefitsMonth(){
     let transactions = await transactionMonth();
     let benefitsMonth = 0;
 
-    for (let i = 0; i < transactions.length; i++) {
-        benefitsMonth += transactions[i].benefit;
+    for (transaction of transactions) {
+        benefitsMonth += transaction.benefit;
     }
 
     return benefitsMonth;
@@ -67,8 +59,8 @@ async function benefitsYear(){
     let transactions = await transactionYear();
     let benefitsYear = 0;
 
-    for (let i = 0; i < transactions.length; i++) {
-        benefitsYear += transactions[i].benefit;
+    for (transaction of transactions) {
+        benefitsYear += transaction.benefit;
     }
 
     return benefitsYear;
@@ -78,19 +70,12 @@ async function benefitsYear(){
 async function transactionYear(){
 
     const transactions = await getTransactions();
-    let transactionsThisYear = [];
-
-    for (let i = 0; i < transactions.length; i++) {
-        let yearNumber = transactions[i].transactionDate.getFullYear();
-        let transactionsYear = transactions[i];
-        let now = new Date();
-
-        if (yearNumber == now.getFullYear()){
-            transactionsThisYear.push(transactionsYear);
-        }
-    }
     
-    return transactionsThisYear;
+    return transactions.filter(transaction =>{
+        if(transaction.transactionDate.getFullYear() === new Date().getFullYear()){
+            return transaction;
+        }
+    });
 }
 
 
