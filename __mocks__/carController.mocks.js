@@ -1,6 +1,6 @@
 import 'jest';
 
-let newCarCreation = jest.fn().mockReturnValue({carBrand: "Tesla", carModel: "Mz3", modelYear: "2021", carImage: "sdfksjhdfskjdfh", carColor: "Blanco", seatsNumber: 5, doorNumber: 5, transmissionType: "automatico", motorType: "noseloqueeee"});
+let newCarCreation = jest.fn().mockReturnValue({carBrand: "Ford", carModel: "2zM", modelYear: "2002", carImage: "hola", carColor: "Negro", seatsNumber: 2, doorNumber: 2, transmissionType: "manual", motorType: "bola"});
 
 const carController = jest.mock('../controllers/carSale/carController.js', () => {
     return {
