@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
-const {createCar, deleteCar, getSingleCar, getCars, updateCar, findCarByBrand} = require('../controllers/carSale/carFunctions')
+const {createCar, deleteCar, getSingleCar, getCars, updateCar} = require('../controllers/carSale/carFunctions')
 const path = require('../globalConfig.json')
+
+const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"),
+    sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"),
+    leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado',
+    seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO',
+    transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd' }
+
+
 
 describe ('Car Model', ()=>{
 
     beforeAll(async () => {
-    await mongoose.connect(path.mongoUri,
+        await mongoose.connect(path.mongoUri,
             { useUnifiedTopology: true,
                 useNewUrlParser: true,
                 useCreateIndex: true,
@@ -16,15 +24,12 @@ describe ('Car Model', ()=>{
             }
         });
     })
-    
+
     describe ('Car Model Read', ()=>{
 
         it('should return the correct number of cars succesfully', async () => {
 
-            const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"), sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"), leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado', seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO', transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd' }
-
-            
-            await createCar(carData);
+            await createCar(carData) ;
             const carList = await getCars();
 
             expect(carList).toHaveLength(1);
@@ -33,10 +38,7 @@ describe ('Car Model', ()=>{
 
         it('should return the car you are looking for', async () => {
 
-            const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"), sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"), leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado', seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO', transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd' }
-
-            
-            const validCar = await createCar(carData);
+            const validCar = await createCar(carData) ;
             const singleCar = await getSingleCar({_id:validCar._id});
 
             expect(singleCar._id).toBeDefined();
@@ -67,15 +69,13 @@ describe ('Car Model', ()=>{
 
     })
 
+    describe ('Car Model Create', () =>{
 
-    describe ('Car Model Creation', ()=>{
 
         it('should create a Car succesfully', async () => {
 
-            const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"), sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"), leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado', seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO', transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd' }
-            
-            const validCar = await createCar(carData);
-    
+            const validCar = await createCar(carData) ;
+
             expect(validCar._id).toBeDefined();
             expect(validCar.carBrand).toBe(carData.carBrand);
             expect(validCar.carModel).toBe(carData.carModel);
@@ -99,68 +99,17 @@ describe ('Car Model', ()=>{
             expect(validCar.stock).toBe(carData.stock);
             expect(validCar.availability).toBe(carData.availability);
             expect(validCar.transactionType).toBe(carData.transactionType);
+
         })
-    
-        it('should insert a car succesfully but with a field not defined in model', async () => {
-    
-            const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"), sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"), leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado', seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO', transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd', lolailo: 'lolailo' }
-    
-            const validCar = await createCar(carData);
-    
-            expect(validCar._id).toBeDefined();
-            expect(validCar.lolailo).toBeUndefined();
-            
-    
-        })
-    
-        it('should throw an error without a required field', async () => {
-    
-            const carData = {carBrand:'ford'}
-            let err;
-            try{
-    
-                const invalidCar = await createCar(carData);
-                error = invalidCar
-    
-            }catch(error){ err = error }
-    
-            expect(err.errors.carModel).toBeDefined();
-            expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
-            
-        })
-        
+
     })
-    
 
-
-
-    describe ('Car Model Delete', ()=>{
-
-        it('should delete a car succesfully', async () => {
-
-            const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"), sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"), leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado', seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO', transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd' }
-
-            const validCar = await createCar(carData);
-
-            await deleteCar({_id:validCar._id});
-
-            const result = await getSingleCar({_id:validCar._id});
-           
-            expect(result).toBeNull();
-
-        
-        })
-
-        
-    })
 
     describe ('Car Model Update', ()=>{
 
         it('should update a car succesfully', async () =>{
 
-            const carData = {carBrand:'ford', carModel:'mondeo', modelYear:'1999', nextItvDate:new Date("2021-02-21T00:00:00.000+00:00"), sellingPrice:2000, costPrice:500, leasingPrice:300, leaseDate:new Date("2021-02-21T00:00:00.000+00:00"), leaseReturnDate:new Date("2021-02-21T00:00:00.000+00:00"), carImage:'adsdas', carColor:'plateado', seatsNumber:5, doorNumber:5, trunkSize:50, co2Emissions:'asdassd', carType:'asdas', airConditioner:'NO', transmissionType:'auto', motorType:'gasolina', stock:2, availability:'SI', transactionType:'asssd' }
-
-            const validCar = await createCar(carData);
+            const validCar = await createCar(carData) ;
             const update = {carBrand:'seat', carModel:'leon'}
             await updateCar({_id:validCar._id}, update);
             const carResult = await getSingleCar({_id:validCar._id})
@@ -173,7 +122,19 @@ describe ('Car Model', ()=>{
 
     })
 
-     
+    describe ('Car Model Delete', ()=>{
+
+        it('should delete a car succesfully', async () => {
+
+            const validCar = await createCar(carData) ;
+            await deleteCar({_id:validCar._id});
+            const result = await getSingleCar({_id:validCar._id});
+           
+            expect(result).toBeNull();
+        
+        })
+        
+    })
 
     afterAll(done => {
         mongoose.connection.close()
