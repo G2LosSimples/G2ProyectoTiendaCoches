@@ -13,3 +13,13 @@ import * as appCarController from './appCarController';
     });
 });
 
+
+
+describe ('It should delete a car using an ID', ()=>{ 
+ 
+    it('should return null', () => { 
+ 
+        expect(appCarController.doCarDelete()).toBeNull();
+    });
+});
+

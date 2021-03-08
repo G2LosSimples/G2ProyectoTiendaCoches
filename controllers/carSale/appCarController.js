@@ -6,6 +6,11 @@ const doCreateCar = () => {
     return carController.newCarCreation(nuevoCoche);
 };
 
+const doCarDelete = () => {
+    return carController.carDelete(null);
+}
+
 export {
-    doCreateCar
+    doCreateCar,
+    doCarDelete
 };
