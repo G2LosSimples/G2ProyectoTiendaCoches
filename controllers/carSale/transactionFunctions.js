@@ -26,6 +26,7 @@ async function calculateBenefits(){
     for(transaction of transactions){
         benefits+=transaction.benefit;
     }
+
     return benefits;
 
 }

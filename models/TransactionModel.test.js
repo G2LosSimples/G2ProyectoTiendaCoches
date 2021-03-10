@@ -22,15 +22,14 @@ describe('Transaction model',()=>{
 
     describe ('Transaction Model Read', () => {
 
-        it('should return the correct number of transaction succesfully', async () => {
+        it('should return the correct number of transactions succesfully', async () => {
 
             const validTransaction = createTransaction(transactionData);
             await validTransaction.save();
             const transactionList = await getTransactions();
         
             expect(transactionList).toHaveLength(1);
-        
-        
+
         })
 
         it('should return the transaction you are looking for', async () => {
