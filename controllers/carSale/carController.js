@@ -20,7 +20,6 @@ const carController = {};
         await createCar(req.body)
         res.redirect("/newCars")
 
-
     };
 
     carController.carDelete = async (req,res) =>{
